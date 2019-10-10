@@ -1,0 +1,20 @@
+label {
+  cursor: pointer;
+}
+
+textarea {
+  width: 400px;
+  height: 150px;
+}
+
+input{
+  text-align: center;
+  padding: 1px;
+  background-color: #070;
+  border-radius: 5px;
+}
+
+input:hover{
+  background-color: #090;
+  cursor: pointer;
+}
