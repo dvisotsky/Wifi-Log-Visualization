@@ -1,19 +1,85 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+    <script src="jquery-ui/external/jquery/jquery.js"></script>
+    <script src="jquery-ui/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_-r2K3IPQd5BsC39gTRED6ag8r3pUO-U&libraries=visualization">
+    </script>
+
+
+
     <script src="main.js"></script>
     <link rel="stylesheet" type = "text/css" href= "base.css">
-    <title>Wifi Log Visualization</title>
+
+    <title>Wifi Log Visualizer</title>
     <meta content="">
   </head>
-  <body>
-    <div>
-   <label for="input-file">Specify a file:</label><br>
-   <input type="file" id="input-file">
+
+<h1>Wifi Log Visualizer 0.8</h1>
+
+    <body>
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#tab-0">Upload</a></li>
+      <li><a href="#tab-1">Map</a></li>
+      <li><a href="#tab-2">Graph</a></li>
+      <li><a href="#tab-3">Table</a></li>
+    </ul>
+    <div id= "tab-0" class="tab">
+
+      <div>
+        <input type="file" id="input-file">
+        <button class ="filterBtn" class="bs" id="-" onclick="updateData()" >Update Data</button>
+        <br>
+        <textarea readonly id="content-target"></textarea>
+      </div>
+
+      <p id="f"><b>Filters:</b></p>
+          <div class="paramButton" id="param1">
+            <button class="filterBtn" class="bs" id="Assoc" onclick="getAllPops()"> Assoc Success</button>
+            <button class="filterBtn" class="bs" id="Deauth" onclick="getAllPops()"> Deauth Success</button>
+            <button class="filterBtn" class="bs" id="-" onclick="getAllPops()"> View All</button>
+      </div>
+
+      </div>
+
+      <div id="tab-1" class="tab">
+        <div id="map"></div>
+        <p>
+          <label for="spinner">Start Time:</label>
+          <input class="spinner" name="value">
+          <label for="spinner">End Time:</label>
+          <input class="spinner" name="value">
+          <button class="bs">Update Time</button>
+        </p>
+        </div>
+
+    <div id="tab-2" class="tab" onclick="drawChart()">
+        <!--<div id="chart">
+        </div>-->
+        <img src="media/pie.png" id="pie" class = "graphImg"></img>
+        <img src="media/line.png" id="line" class = "graphImg"></img>
+        <p>
+          <label for="spinner">Start Time:</label>
+          <input class="spinner" name="value">
+          <label for="spinner">End Time:</label>
+          <input class="spinner" name="value">
+          <button class="bs">Update Time</button>
+        </p>
+
+    <div id="tab-3" class="tab">
+
+      </div>
+    </div>
+
+
+
   </div>
-  <textarea id="content-target"></textarea>
-
-
 
 
   </body>
