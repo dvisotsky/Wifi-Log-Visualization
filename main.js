@@ -80,16 +80,24 @@ function calcPop(location){
 
 
 //count Population
-var atkinsPop = 0;
-var woodwardPop = 0;
-var unionPop = 0;
-var epicPop = 0;
-var coedPop = 0;
-var fretwelPop = 0;
+//count Population
+var atkinsPop = 10;
+var woodwardPop = 2;
+var unionPop = 6;
+var epicPop = 2;
+var coedPop = 2;
+var fretwelPop = 3;
+var colvardPop = 2;
+var conePop = 1;
+var dukePop = 1;
+var robinsonPop = 1;
+var rowePop = 1;
+var belkPop = 0;
+var gagePop = 0;
+var huntPop = 0;
 
 function getAllPops(){
   atkinsPop = calcPop("Atki");
-
   console.log("Atkins Population: "+atkinsPop)
   //TODO: add all other locations
 }
@@ -114,22 +122,40 @@ function loadMap(){
   var atkins = new google.maps.LatLng(35.305850, -80.732149);
   var epic = new google.maps.LatLng(35.309097, -80.741713);
   var fretwell = new google.maps.LatLng(35.306057, -80.729141);
+  var colvard = new google.maps.LatLng(35.304845, -80.731715);
+  var cone = new google.maps.LatLng(35.305122, -80.733254);
+  var duke = new google.maps.LatLng(35.312063, -80.741291);
+  var robinson = new google.maps.LatLng(35.303894, -80.729934);
+  var rowe = new google.maps.LatLng(35.304644, -80.730759);
+  var belk = new google.maps.LatLng(35.306394, -80.729969);
+  var gage = new google.maps.LatLng(35.300717, -80.734088);
+  var hunt = new google.maps.LatLng(35.301420, -80.736445);
 
   var heatMapData = [
-    {location: woodward, weight: woodwardPop},
-    {location: union, weight: unionPop},
-    {location: atkins, weight: atkinsPop},
-    {location: epic, weight: epicPop},
-    {location: fretwell, weight: fretwelPop},
-  ]
+      {location: woodward, weight: woodwardPop},
+      {location: union, weight: unionPop},
+      {location: atkins, weight: atkinsPop},
+      {location: epic, weight: epicPop},
+      {location: fretwell, weight: fretwelPop},
+  	{location: colvard, weight: colvardPop},
+  	{location: cone, weight: conePop},
+  	{location: duke, weight: dukePop},
+  	{location: robinson, weight: robinsonPop},
+  	{location: rowe, weight: rowePop},
+  	{location: belk, weight: belkPop},
+  	{location: gage, weight: gagePop},
+  	{location: hunt, weight: huntPop},
+    ]
 
   var map = new google.maps.Map(document.getElementById('map'), {
     center: uncc,
-    zoom: 16
+    zoom: 16,
+    dissipating: false
   });
 
   var heatmap = new google.maps.visualization.HeatmapLayer({
-    data: heatMapData, radius: 20
+    data: heatMapData,
+	radius: 30
   });
   heatmap.setMap(map);
 }
